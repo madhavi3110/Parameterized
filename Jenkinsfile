@@ -32,7 +32,7 @@ pipeline {
                     """
                 }
             }
-							stage('Deploy to Development') {
+				stage('Deploy to Test') {
 					when {
 						expression { 
 							return params.ENVIRONMENT == 'Test'
@@ -44,6 +44,5 @@ pipeline {
                     """
                 }
             }
-		
-	}
+		}
 }

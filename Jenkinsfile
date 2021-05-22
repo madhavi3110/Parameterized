@@ -8,13 +8,13 @@ pipeline {
 							parameters([
 							choice(
 							choices: ['Dev', 'Test'], 
-							description: 'in NF1 brnach Dev and Test', 
-							name: 'NF1'
+							description: '', 
+							name: 'Environemnt'
 							), 
 						   choice(
-						   choices: ['Dev', 'Test'], 
+						   choices: ['NF1', 'NF2'], 
 						   description: '', 
-						   name: 'NF2')
+						   name: 'Branch')
 						   ])
 						   ])
 						}
@@ -23,7 +23,7 @@ pipeline {
 				stage('Deploy to Development') {
 					when {
 						expression { 
-							return params.ENVIRONMENT == 'Dev'
+							return params.ENVIRONMENT == 'Dev' 
 						}
 					}
 					steps {

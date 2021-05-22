@@ -3,7 +3,7 @@ pipeline {
 		stages{
 				stage('Set up parameters'){
 					steps {
-						Script {
+						script {
 							properties([
 							parameters([
 							choice(

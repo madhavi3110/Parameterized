@@ -8,12 +8,12 @@ pipeline {
 							parameters([
 							choice(
 							choices: ['Dev', 'Test'], 
-							description: '', 
+							description: 'Choose the app env to deploy', 
 							name: 'Environemnt'
 							), 
 						   choice(
 						   choices: ['NF1', 'NF2'], 
-						   description: '', 
+						   description: 'Choose the branch to deploy', 
 						   name: 'Branch')
 						   ])
 						   ])
@@ -23,15 +23,15 @@ pipeline {
 				stage('Deploy to Development') {
 					when {
 						expression { 
-							return params.ENVIRONMENT == 'Dev' 
+							return params.Environemnt == 'Dev' 
 						}
 					}
 					steps {
-                    sh """
-                    echo "deploy to Dev"
-                    """
-                }
-            }
+							sh """
+							echo "deploy to ${params.deployEnv}"
+							"""
+					}
+				}
 				stage('Deploy to Test') {
 					when {
 						expression { 
@@ -39,10 +39,12 @@ pipeline {
 						}
 					}
 					steps {
-                    sh """
-                    echo "deploy to Test"
-                    """
-                }
+						script {
+							sh """
+							echo "deploy to ${params.deployEnv}"
+							"""
+							}
+					}
             }
 		}
 }

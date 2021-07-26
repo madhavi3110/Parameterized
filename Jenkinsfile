@@ -9,12 +9,12 @@ pipeline {
 							choice(
 							choices: ['Dev', 'Test'], 
 							description: 'Choose the app env to deploy', 
-							name: 'Environemnt'
+							name: 'Select Environemnt'
 							), 
 						   choice(
 						   choices: ['NF1', 'NF2', 'NF3', 'NF4'], 
 						   description: 'Choose the branch to deploy', 
-						   name: 'Branch')
+						   name: 'Select Branch')
 						   ])
 						   ])
 						}

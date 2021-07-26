@@ -12,7 +12,7 @@ pipeline {
 							name: 'Environemnt'
 							), 
 						   choice(
-						   choices: ['NF1', 'NF2'], 
+						   choices: ['NF1', 'NF2', 'NF3', 'NF4], 
 						   description: 'Choose the branch to deploy', 
 						   name: 'Branch')
 						   ])
